@@ -299,7 +299,7 @@ Fig: erodedImage
 
 Fig: dilatedImage
 <div id="image">
-	<img src="./sample_1/capture_2.PNG" alt="capture" width="60%" />
+	<img src="./sample_1/capture_3.PNG" alt="capture" width="60%" />
 </div>
 
 Note how the eroded image is smaller than the thresholded image and how the dilated image is bigger than the thresholded image.

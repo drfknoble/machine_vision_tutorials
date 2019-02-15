@@ -1,6 +1,6 @@
-# OpenCV Tutorial 5: Thresholding an Image
+# OpenCV Tutorial 5: Applying Morphological Operations to an Image
 
-Welcome to my tutorial on how to apply morphological operators on an image using OpenCV.
+Welcome to my tutorial on how to apply morphological operations to an image using OpenCV.
 
 ## Introduction
 

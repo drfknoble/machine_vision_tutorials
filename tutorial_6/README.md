@@ -1,12 +1,12 @@
-# OpenCV Tutorial 6: Introduction to Object Detection
+# OpenCV Tutorial 6: Edge and Colour Detection
 
-Welcome to my tutorial on how to do introductory object detection using OpenCV.
+Welcome to my tutorial on how to do edge and colour detection using OpenCV.
 
 ## Introduction
 
 So far, the previous tutorials have shown you how to capture an image, access its pixels' values, draw on the image, threshold it, and apply morphological operations. These are all things that are done "to" the image, but what if you want to get something "from" the image, e.g to know if an object, such as an apple, is in a camera's view? We know apples are round and red, we can use this information and image processing techniques to detect them, i.e. perform object detection. OpenCV has a number of functions that can help with this.
 
-In this tutorial I show you how to use OpenCV's C++ library to erode and dilate an image.
+In this tutorial I show you how to use OpenCV's C++ library to detect edges and colour in an image.
 
 This tutorial is organised as follows: I first describe the requirements for completing this tutorial; then I list the tutorial's contents and describe how to build its activity and sample; next, I go through the sample's header and source files, describing each line's and snippet's purpose; I then prescribe activities for you to complete; and lastly, I conclude the tutorial.
 

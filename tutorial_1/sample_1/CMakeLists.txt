@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.5.1)
 
 project(project)
+
+set (OpenCV_DIR, "C:/opencv/build/")
 
 find_package(OpenCV REQUIRED)
 
@@ -9,15 +11,17 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 add_executable(project main.cpp)
 target_link_libraries (project ${OpenCV_LIBS})
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+	set(OPENCV_DLLS
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world401d.dll
+	)
+elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+	set(OPENCV_DLLS
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world401d.dll
+	)
+endif()
+
 set(CMAKE_DIR "C:/Program Files/CMake")
-
-set(OPENCV_DIR "C:/opencv/build/x64/vc15/bin")
-
-set(OPENCV_DLLS
-	${OPENCV_DIR}/opencv_world401d.dll
-	${OPENCV_DIR}/opencv_world401.dll
-)
-
 find_program(CMAKE_EXECUTABLE NAMES cmake HINTS ${CMAKE_DIR} ENV CMAKE_DIR PATH_SUFFIXES bin)
 
 # Build
@@ -36,3 +40,6 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/data DESTINATION ${PROJECT_SOURCE_DIR}/b
 foreach(file ${OPENCV_DLLS})
 	install(FILES ${file} DESTINATION ${PROJECT_SOURCE_DIR}/bin/)
 endforeach(file)
+
+
+

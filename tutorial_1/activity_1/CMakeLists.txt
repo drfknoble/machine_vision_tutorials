@@ -12,6 +12,8 @@ include_directories(
 add_executable(main ${PROJECT_SOURCE_DIR}/main.cpp)
 
 # Find Packages
+set(OpenCV_DIR "c:/opencv/build")
+
 find_package (OpenCV REQUIRED)
 target_link_libraries(main ${OpenCV_LIBS})
 

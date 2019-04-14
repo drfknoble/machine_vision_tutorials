@@ -1,11 +1,15 @@
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.5.1)
 
 project(project)
 
+set(CMAKE_DIR "C:/Program Files/CMake")
+set(QT_DIR "C:/Qt/5.12.2/msvc2017_64")
+
+set(OpenCV_DIR "C:/opencv/build")
+set(Qt5_DIR "C:/Qt/5.12.2/msvc2017_64/lib/cmake/Qt5")
+
 find_package(OpenCV REQUIRED)
-find_package(Qt5Core REQUIRED)
-find_package(Qt5Gui REQUIRED)
-find_package(Qt5Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -17,14 +21,15 @@ target_link_libraries(gui Qt5::Core Qt5::Gui Qt5::Widgets ${OpenCV_LIBS})
 add_executable(project WIN32 main.cpp)
 target_link_libraries (project gui)
 
-set(CMAKE_DIR "C:/Program Files/CMake")
-set(QT_DIR "C:/Qt/5.11.2/msvc2017_64")
-
-set(OPENCV_DIR "C:/opencv/build/x64/vc15/bin")
-set(OPENCV_DLLS
-	${OPENCV_DIR}/opencv_world401d.dll
-	${OPENCV_DIR}/opencv_world401.dll
-)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+	set(OPENCV_DLLS
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world410d.dll
+	)
+elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+	set(OPENCV_DLLS
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world410.dll
+	)
+endif()
 
 # Build
 

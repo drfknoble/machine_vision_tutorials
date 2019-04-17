@@ -13,11 +13,11 @@ target_link_libraries (project ${OpenCV_LIBS})
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 	set(OPENCV_DLLS
-		${OpenCV_DIR}/x64/vc15/bin/opencv_world401d.dll
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world410d.dll
 	)
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 	set(OPENCV_DLLS
-		${OpenCV_DIR}/x64/vc15/bin/opencv_world401.dll
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world410.dll
 	)
 endif()
 

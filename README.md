@@ -1,4 +1,4 @@
-## PC-based Control Tutorials
+## Machine Vision Tutorials
 
 The following link describes how to install CMake:
 [[https://cmake.org/install/](https://cmake.org/install/)]

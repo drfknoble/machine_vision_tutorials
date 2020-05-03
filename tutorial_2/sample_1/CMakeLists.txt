@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(project)
 
-set (OpenCV_DIR "C:/opencv/build/")
+set (OpenCV_DIR "G:/opencv/build")
 
 find_package(OpenCV REQUIRED)
 
@@ -13,18 +13,20 @@ target_link_libraries (project ${OpenCV_LIBS})
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 	set(OPENCV_DLLS
-		${OpenCV_DIR}/x64/vc15/bin/opencv_world410d.dll
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world430d.dll
 	)
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 	set(OPENCV_DLLS
-		${OpenCV_DIR}/x64/vc15/bin/opencv_world410.dll
+		${OpenCV_DIR}/x64/vc15/bin/opencv_world430.dll
 	)
 endif()
 
-set(CMAKE_DIR "C:/Program Files/CMake")
+set(CMAKE_DIR "G:/CMake")
 find_program(CMAKE_EXECUTABLE NAMES cmake HINTS ${CMAKE_DIR} ENV CMAKE_DIR PATH_SUFFIXES bin)
 
 # Build
+
+set_property(TARGET project PROPERTY CXX_STANDARD 17)
 
 add_custom_command(TARGET project POST_BUILD COMMAND ${CMAKE_EXECUTABLE} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:project>/data)
 

@@ -1,4 +1,6 @@
 **/bin/**
 **/build/**
 **/.vs/**
-.vscode/**
+**/.vscode/**
+**/test_*/**
+**/CMakeSettings.json

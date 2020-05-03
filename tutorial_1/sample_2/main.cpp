@@ -3,7 +3,7 @@
 
 #include "main.hpp"
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 int main(int argc, char* argv[]) {
 
@@ -15,9 +15,7 @@ int main(int argc, char* argv[]) {
 
     fs::path executablePath{ fs::path(argv[0]) };
 
-	fs::path dataPath{ fs::path("/data") };
-
-	fs::path outputPath{ executablePath.parent_path().append(dataPath) };
+	fs::path outputPath{ (executablePath.parent_path()).append("data") };
 
     if(!fs::is_directory(outputPath)) {
 
@@ -25,7 +23,7 @@ int main(int argc, char* argv[]) {
 
     }
 
-    fs::path outputFile {outputPath.append(fs::path("/image.png"))};
+    fs::path outputFile {outputPath.append("image.png")};
 
 	std::cout << outputFile.string() << std::endl;
 

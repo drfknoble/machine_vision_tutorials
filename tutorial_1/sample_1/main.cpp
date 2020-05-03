@@ -3,17 +3,15 @@
 
 #include "main.hpp"
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 int main(int argc, char* argv[]) {
 
 	fs::path executablePath{ fs::path(argv[0]) };
 
-	fs::path dataPath{ fs::path("/data/image.png") };
+	fs::path inputFile{ (executablePath.parent_path()).append("data/image.png") };
 
-	fs::path inputFile{ executablePath.parent_path().append(dataPath) };
-
-	std::cout << inputFile.string() << std::endl;
+	std::cout << inputFile << std::endl;
 
 	cv::Mat image = cv::imread(inputFile.string(), cv::IMREAD_COLOR);
 

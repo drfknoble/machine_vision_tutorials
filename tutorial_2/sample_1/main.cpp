@@ -3,15 +3,13 @@
 
 #include "main.hpp"
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 int main(int argc, char* argv[]) {
 
     fs::path executablePath{ fs::path(argv[0]) };
 
-    fs::path dataPath{ fs::path("/data/image.jpg") };
-
-    fs::path inputFile { executablePath.parent_path().append(dataPath) };
+    fs::path inputFile { executablePath.parent_path().append("data/image.jpg") };
 
     std::cout << inputFile.string() << std::endl;
 

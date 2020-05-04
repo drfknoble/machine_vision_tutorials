@@ -15,7 +15,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 	set(OPENCV_DLLS
 		${OpenCV_DIR}/x64/vc15/bin/opencv_world430d.dll
 	)
-elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
 	set(OPENCV_DLLS
 		${OpenCV_DIR}/x64/vc15/bin/opencv_world430.dll
 	)
@@ -37,7 +37,7 @@ endforeach(file)
 install(TARGETS project DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 foreach(file ${OPENCV_DLLS})
-	install(FILES ${file} DESTINATION ${PROJECT_SOURCE_DIR}/bin/)
+	install(FILES ${file} DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 endforeach(file)
 
 

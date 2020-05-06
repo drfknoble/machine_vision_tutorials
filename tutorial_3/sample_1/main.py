@@ -1,51 +1,30 @@
 import cv2 as cv
+import numpy as np
 
 from absl import app
 from pathlib import Path
 
+
 def main(argv):
 
-    executable_path = Path(argv[0])
+    image = (255, 255, 255) * np.ones((400, 400, 3))
 
-    input_file = (executable_path.parent).joinpath("data/image.jpg")
+    image = cv.line(image, (100, 50), (300, 50), (0, 0, 0), 10)
+    image = cv.line(image, (350, 100), (350, 300), (0, 0, 0), 10)
+    image = cv.line(image, (300, 350), (100, 350), (0, 0, 0), 10)
+    image = cv.line(image, (50, 300), (50, 100), (0, 0, 0), 10)
 
-    print(input_file)
+    image = cv.ellipse(image, (100, 100), (50, 50), 0, 180, 270, (0, 0, 0), 10)
+    image = cv.ellipse(image, (300, 100), (50, 50), 0, 270, 360, (0, 0, 0), 10)
+    image = cv.ellipse(image, (100, 300), (50, 50), 0, 90, 180, (0, 0, 0), 10)
+    image = cv.ellipse(image, (300, 300), (50, 50), 0, 0, 90, (0, 0, 0), 10)
 
-    image = cv.imread(str(input_file), cv.IMREAD_COLOR)
-
-    if image is None:
-
-        print("Error: 'image' is empty")
-
-        return 1
-
-    intensity = image[100, 100]
-
-    blue = intensity[0]
-    red = intensity[1]
-    green = intensity[2]
-
-    print("{}, {}, {}, {}".format(intensity, blue, red, green))
+    image = cv.circle(image, (200, 200), 75, (0, 0, 0), 10)
+    image = cv.circle(image, (300, 100), 25, (0, 0, 0), -1)
 
     cv.imshow("image", image)
 
     cv.waitKey(0)
-
-    image[100, 100] = (100, 0, 0)
-    
-    intensity = image[100, 100]
-
-    blue = intensity[0]
-    red = intensity[1]
-    green = intensity[2]
-
-    print("{}, {}, {}, {}".format(intensity, blue, red, green))
-    
-    cv.imshow("image", image)
-
-    cv.waitKey(0)
-
-    image[100, 100] = (100, 0, 0)
 
     cv.destroyAllWindows()
 

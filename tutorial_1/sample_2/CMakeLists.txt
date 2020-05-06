@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(project)
 
-set (OpenCV_DIR "G:/opencv/build")
+set (OpenCV_DIR "C:/opencv/build")
 
 find_package(OpenCV REQUIRED)
 
@@ -21,7 +21,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
 	)
 endif()
 
-set(CMAKE_DIR "G:/CMake")
+set(CMAKE_DIR "C:/Program Files/CMake")
 find_program(CMAKE_EXECUTABLE NAMES cmake HINTS ${CMAKE_DIR} ENV CMAKE_DIR PATH_SUFFIXES bin)
 
 # Build

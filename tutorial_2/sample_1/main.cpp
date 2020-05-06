@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
     fs::path executablePath{ fs::path(argv[0]) };
 
-    fs::path inputFile { executablePath.parent_path().append("data/image.jpg") };
+    fs::path inputFile { (executablePath.parent_path()).append("data/image.jpg") };
 
     std::cout << inputFile.string() << std::endl;
 

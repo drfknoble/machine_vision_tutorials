@@ -107,29 +107,43 @@ Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
 
 ### Visual Studio Code
 
-Open the Command Palette via either <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> or <kbd>F1</kbd> and enter the following command:
+To configure the project, open the Command Palette via either the shortcut <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> or <kbd>F1</kbd>, or open the "View" menu and left click on Command Palette. Afterwards, enter the following command:
 
     CMake:Configure
 
 Wait for the command to complete.
 
-Open the Command Palette and enter the following command:
+To build the project, open the Command Palette and enter the following command:
 
     CMake:Build
 
 Wait for the command to complete.
 
-Open the Command Palette and enter the following command:
+To run the built executable, open the Command Palette and enter the following command:
 
     CMake:Run Without Debugging
 
 Wait for the command to complete.
 
-Open the Command Palette and enter the following command:
+To install the build executable, open the Command Palette and enter the following command:
 
     CMake:Install
 
 Wait for the command to complete.
+
+### Visual Studio IDE
+
+To build the project, use the shortcut <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd> or open the "Build" menu and left click on "Build All".
+
+Wait for the command to complete.
+
+Left click on the drop down menu next to "Select Startup Item" and select "main.exe". 
+
+To run the built executable, left click on the selected startup item.
+
+To install the built executable, open the "Build" menu and left click on install "main.exe".
+
+To run the installed executable, left click on the drop down menu next to "Select Startup Item" and select "main.exe (install)". Afterwards, left click on the selected startup item. 
 
 ## Output
 

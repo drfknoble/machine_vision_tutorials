@@ -83,14 +83,14 @@ Open [main.cpp](main.cpp). Complete the following:
     1. Use OpenCV's `destroyWindow()` function to close the `image` window
     1. Append "data/output_image.png" to `executable_path`. Assign the results to a variable named "output_file"
     1. Use the standard library's `cout` output stream to display the contents of `output_file`
-    1. Use OpenCV's `imwrite()` function to write `image` to a file with anmed equal to `output_file`'s contents
+    1. Use OpenCV's `imwrite()` function to write `image` to a file with a name equal to `output_file`'s contents
     1. Return 0
 1. In the catch statement:
     1. Display information about an exception
 
 ## Step 3
 
-Open [CmakeLists.txt](CMakeLists.txt). Complete the following:
+Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
 
 1. Define a minimum required CMake version
 1. Name the project "main"

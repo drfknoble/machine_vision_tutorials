@@ -16,7 +16,7 @@ The aims of this activity are to:
 
 The objectives of this activity are to:
 
-1. Write a program that uses the C++ standard and OpenCV libraries to load an image, display it, and write a copy to a directory
+1. Write a program that uses the C++ standard and OpenCV libraries to load an image, display it, and write a copy to a directory.
 1. Write a CMakeLists.txt file
 1. Build an executable using CMake
 
@@ -57,51 +57,52 @@ Here, we will work throught the steps needed to load an image, display it, and w
 
 ## Step 1
 
-Open [main.hpp](main.hpp). Complete the following:
+Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
 
-1. Create a header guard
-1. Include the standard library's iostream and filesystem header files
-1. Include OpenCV's header file
+1. Use CMake's `cmake_minimum_required()` function to define a minimum required CMake version.
+1. Use CMake's `project()` to name the project "main".
+1. Use CMake's `set()` function to set the C++ standard to be C++17.
+1. Use CMake's `find_package()` function find the Boost package.
+1. Use CMake's `include_directories()` function to include Boost's include directories to the project.
+1. Use CMake's `link_directories()` function to include Boost's libraries directories to the project.
+1. Use CMake's `add_executable()` function to add source files to the project.
+1. Write a custom command to copy the project's data sub-directory to the build directory.
+1. Use CMake's `install()` function to copy the built project into a sub-directory named "bin"1. 
+1. Write a command to install the project's data sub-directory into the bin sub-directory.
 
 ## Step 2
 
-Open [main.cpp](main.cpp). Complete the following:
+Open [main.hpp](main.hpp). Complete the following:
 
-1. Include main.hpp
-1. Define the ```main()``` function
-1. Write a try-catch statement
-1. In the try statement:
-    1. Use the standard library's `path` class to get the executable's parent path. Assign the results to a variable named "executable_path"
-    1. Use the standard library's `cout` output stream to display the contents of `executable_path`
-    1. Append "data/input_image.png" to `executable_path`. Assign the results to a variable named "input_file"
-    1. Use the standard library's `cout` output stream to display the contents of `input_file`
-    1. Write an `if` statement that checks whether a file with a name equal to `input_file`'s contents exists. If false, return 1.
-    1. Use OpenCV's `imread()` function to read a file with a name equal to `input_file`'s content. Assign the results to a variable named "image"
-    1. Write an `if` statement that checks whether `image` is empty. If true, return 2
-    1. Use OpenCV's `imshow()` function to display `image` in a window named "image"
-    1. Write a `while` loop that loops continuously until the user presses the <kbd>Esc</kbd> key
-    1. Use OpenCV's `destroyWindow()` function to close the `image` window
-    1. Append "data/output_image.png" to `executable_path`. Assign the results to a variable named "output_file"
-    1. Use the standard library's `cout` output stream to display the contents of `output_file`
-    1. Use OpenCV's `imwrite()` function to write `image` to a file with a name equal to `output_file`'s contents
-    1. Return 0
-1. In the catch statement:
-    1. Display information about an exception
+1. Create a header guard.
+1. Include the standard library's iostream and filesystem header files.
+1. Include OpenCV's header file.
 
 ## Step 3
 
-Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
+Open [main.cpp](main.cpp). Complete the following:
 
-1. Define a minimum required CMake version
-1. Name the project "main"
-1. Set the C++ standard to be C++17
-1. Find the OpenCV package
-1. Include OpenCV's include directories to the project
-1. Include OpenCV's libraries directories to the project
-1. Add an executable to the project
-1. Write a custom command to copy the project's data sub-directory to the build directory
-1. Write a command to install the project into a sub-directory named "bin"
-1. Write a command to install the project's data sub-directory into the bin sub-directory
+1. Include main.hpp.
+1. Define a function named "main". The function should accept the following arguments: `int argc` and `char* argv[]`. The function should return an `int` data type.
+1. In `main()`:
+    1. Write a try-catch statement.
+    1. In the try statement:
+        1. Use the standard library's `path` class to get the executable's parent path. Assign the results to a variable named "executable_path".
+        1. Use the standard library's `cout` output stream to display the contents of `executable_path`.
+        1. Append "data/input_image.png" to `executable_path`. Assign the results to a variable named "input_file".
+        1. Use the standard library's `cout` output stream to display the contents of `input_file`.
+        1. Write an `if` statement that checks whether a file with a name equal to `input_file`'s contents exists. If false, return 1.
+        1. Use OpenCV's `imread()` function to read a file with a name equal to `input_file`'s content. Assign the results to a variable named "image"
+        1. Write an `if` statement that checks whether `image` is empty. If true, return 2.
+        1. Use OpenCV's `imshow()` function to display `image` in a window named "image".
+        1. Write a `while` loop that loops continuously until the user presses the <kbd>Esc</kbd> key.
+        1. Use OpenCV's `destroyWindow()` function to close the `image` window
+        1. Append "data/output_image.png" to `executable_path`. Assign the results to a variable named "output_file".
+        1. Use the standard library's `cout` output stream to display the contents of `output_file`.
+        1. Use OpenCV's `imwrite()` function to write `image` to a file with a name equal to `output_file`'s contents.
+        1. Return 0.
+    1. In the catch statement:
+        1. Display information about an exception.
 
 ## Step 4
 

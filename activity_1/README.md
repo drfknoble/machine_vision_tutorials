@@ -8,34 +8,34 @@ To develop our understanding of the Open Computer Vision (OpenCV) library, let's
 
 The aims of this activity are to:
 
-1. Practise writing programs in C++
-1. Pratise building software using CMake
-1. Familiarise ourselves with OpenCV's fuctions
+1. Practise writing programs in C++.
+1. Pratise building software using CMake.
+1. Familiarise ourselves with OpenCV's fuctions.
 
 ## Objectives
 
 The objectives of this activity are to:
 
 1. Write a program that uses the C++ standard and OpenCV libraries to load an image, display it, and write a copy to a directory.
-1. Write a CMakeLists.txt file
-1. Build an executable using CMake
+1. Write a CMakeLists.txt file.
+1. Build an executable using CMake.
 
 ## Requirements
 
 To complete this activity, you need the following tools:
 
-1. [CMake 3.17.2](https://cmake.org/)
+1. [CMake 3.17.2](https://cmake.org/).
 1. [Visual Studio Code](https://code.visualstudio.com/) and either: 
-    1) GCC via [Mingw-w64](http://mingw-w64.org/doku.php)
+    1) GCC via [Mingw-w64](http://mingw-w64.org/doku.php).
     
     or
     
-    2) [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+    2) [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 
     or
 
-1. [Visual Studio Community 2019](https://visualstudio.microsoft.com/vs/)
-1. [OpenCV 4.3.0](https://opencv.org/)
+1. [Visual Studio Community 2019](https://visualstudio.microsoft.com/vs/).
+1. [OpenCV 4.3.0](https://opencv.org/).
 
 I recommend installing Visual Studio Community 2019 and the Desktop development with C++ workload. If you've installed Visual Studio IDE, you can use its C++ in Visual Studio Code.
 
@@ -43,11 +43,11 @@ I recommend installing Visual Studio Community 2019 and the Desktop development 
 
 This project is organised as follows:
 
-1. [CMakeLists.txt](CMakeLists.txt)
-1. [main.cpp](main.cpp)
-1. [main.hpp](main.hpp)
-1. [README.md](README.md)
-1. [data/input_image.png](data/input_image.png)
+1. [CMakeLists.txt](CMakeLists.txt).
+1. [main.cpp](main.cpp).
+1. [main.hpp](main.hpp).
+1. [README.md](README.md).
+1. [data/input_image.png](data/input_image.png).
 
 The file CMakeLists.txt is a text file. We will use it to type commands that CMake will use to build our project. The files main.cpp and main.hpp are C++ source and header files. We will use them to write code that the compiler will use to build our executable. The sub-directory data contains the image input_image.png. We will use it in our program.
 
@@ -106,8 +106,9 @@ Open [main.cpp](main.cpp). Complete the following:
 
 ## Step 4
 
-### Visual Studio Code
+To build the project, either build the project: 1) Visual Studio Code; or 2) Visual Studio IDE.
 
+### 1. Build in Visual Studio Code
 To configure the project, open the Command Palette via either the shortcut <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> or <kbd>F1</kbd>, or open the "View" menu and left click on Command Palette. Afterwards, enter the following command:
 
     CMake:Configure
@@ -132,7 +133,7 @@ To install the build executable, open the Command Palette and enter the followin
 
 Wait for the command to complete.
 
-### Visual Studio IDE
+### 2. Build in Visual Studio IDE
 
 To build the project, use the shortcut <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd> or open the "Build" menu and left click on "Build All".
 

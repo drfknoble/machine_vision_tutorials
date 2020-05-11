@@ -62,10 +62,11 @@ Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
 1. Use CMake's `cmake_minimum_required()` function to define a minimum required CMake version.
 1. Use CMake's `project()` to name the project "main".
 1. Use CMake's `set()` function to set the C++ standard to be C++17.
-1. Use CMake's `find_package()` function find the Boost package.
+1. Use CMake's `find_package()` function find the OpenCV package.
 1. Use CMake's `include_directories()` function to include Boost's include directories to the project.
 1. Use CMake's `link_directories()` function to include Boost's libraries directories to the project.
 1. Use CMake's `add_executable()` function to add source files to the project.
+1. Use CMake's `target_link_libraries()` function to link the executable with OpenCV's libraries.
 1. Write a custom command to copy the project's data sub-directory to the build directory.
 1. Use CMake's `install()` function to copy the built project into a sub-directory named "bin"1. 
 1. Write a command to install the project's data sub-directory into the bin sub-directory.

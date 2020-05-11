@@ -68,8 +68,10 @@ Open [CMakeLists.txt](CMakeLists.txt). Complete the following:
 1. Use CMake's `add_executable()` function to add source files to the project.
 1. Use CMake's `target_link_libraries()` function to link the executable with OpenCV's libraries.
 1. Write a custom command to copy the project's data sub-directory to the build directory.
-1. Use CMake's `install()` function to copy the built project into a sub-directory named "bin"1. 
+1. Write a custom command to copy OpenCV's DLLs to the build directory.
+1. Use CMake's `install()` function to copy the built project into a sub-directory named "bin".
 1. Write a command to install the project's data sub-directory into the bin sub-directory.
+1. Write a custom command to copy OpenCV's DLLs to the bin sub-directory.
 
 ## Step 2
 

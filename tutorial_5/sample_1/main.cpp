@@ -12,10 +12,12 @@ int main(int argc, char* argv[]) {
 
 	cv::imshow("thresholdedImage", thresholdedImage);
 
-	cv::waitKey(1)
+	cv::waitKey(1);
 
 	int elementSize = 10;
 	cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
+
+	std::cout << element << std::endl;
 
 	cv::Mat erodedImage;
 

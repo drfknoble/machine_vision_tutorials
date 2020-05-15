@@ -4,7 +4,8 @@ int main(int argc, char* argv[]) {
 
 	cv::Mat image{ cv::Mat(cv::Size(640, 480), CV_8UC3, cv::Scalar(0, 0, 0)) };
 
-	cv::circle(image, cv::Point(320, 240), 50, cv::Scalar(125, 0, 0), -1);
+	cv::circle(image, cv::Point(320, 240), 50, cv::Scalar(255, 0, 0), -1);
+	cv::circle(image, cv::Point(320, 240), 20, cv::Scalar(0, 0, 0), -1);
 
 	cv::imshow("image", image);
 
@@ -21,7 +22,7 @@ int main(int argc, char* argv[]) {
 	std::vector<std::vector<cv::Point>> contours;
 	std::vector<cv::Vec4i> hierarchy;
 
-	cv::findContours(thresholdedImage, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+	cv::findContours(thresholdedImage, contours, hierarchy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
 	for (int i = 0; i < contours.size(); i++) {
 		cv::drawContours(image, contours, i, cv::Scalar(0, 0, 255), 2, 8, hierarchy);

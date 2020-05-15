@@ -28,8 +28,6 @@ endif()
 
 # build
 
-add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:main>/data)
-
 foreach(file ${OPENCV_DLLS})
 	add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND} ARGS -E copy ${file} $<TARGET_FILE_DIR:main>)
 endforeach(file)
@@ -37,7 +35,6 @@ endforeach(file)
 # install
 
 install(TARGETS main DESTINATION ${PROJECT_SOURCE_DIR}/bin)
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/data DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 foreach(file ${OPENCV_DLLS})
 	install(FILES ${file} DESTINATION ${PROJECT_SOURCE_DIR}/bin)

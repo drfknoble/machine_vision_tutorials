@@ -12,6 +12,7 @@ def main():
     img = cv.imread("data/apples.png")
 
     if img is None:
+        print("ERROR::CV::Could not read image.")
         return
 
     # Resize image

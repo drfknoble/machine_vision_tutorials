@@ -36,14 +36,14 @@ def main():
         kernel = cv.getStructuringElement(s, (20, 20))
         print("{}: \n{}\n".format(shapes_label[i], kernel))
 
-        # closed = cv.dilate(img, kernel)
-        # closed = cv.erode(closed, kernel)
+        # opened = cv.erode(opened, kernel)
+        # opened = cv.dilate(img, kernel)
 
-        closed = cv.morphologyEx(img, cv.MORPH_CLOSE, kernel)
+        opened = cv.morphologyEx(img, cv.MORPH_OPEN, kernel)
 
-        cv.imshow("Closed + {}".format(shapes_label[i]), closed)
+        cv.imshow("Opened + {}".format(shapes_label[i]), opened)
         cv.waitKey(0)        
-        cv.imwrite("data/closed_{}.png".format(shapes_label[i]), closed)
+        cv.imwrite("data/opened_{}.png".format(shapes_label[i]), opened)
     
     cv.destroyAllWindows()
 

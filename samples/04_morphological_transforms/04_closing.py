@@ -28,16 +28,22 @@ def main():
   
     # Closing
 
-    kernel = cv.getStructuringElement(cv.MORPH_RECT, (20, 20))
+    shapes = [cv.MORPH_RECT, cv.MORPH_CROSS, cv.MORPH_ELLIPSE]
+    shapes_label = ["MORPH_RECT", "MORPH_CROSS", "MORPH_ELLIPSE"]
+    
+    for i, s in enumerate(shapes):
 
-    # closed = cv.dilate(img, kernel)
-    # closed = cv.erode(opened, kernel)
+        kernel = cv.getStructuringElement(s, (20, 20))
+        print("{}: \n{}\n".format(shapes_label[i], kernel))
 
-    closed = cv.morphologyEx(img, cv.MORPH_CLOSE, kernel)
+        # closed = cv.dilate(img, kernel)
+        # closed = cv.erode(closed, kernel)
 
-    cv.imshow("Closing", closed)
-    cv.waitKey(0)
-    cv.imwrite("data/closed.png", closed)
+        closed = cv.morphologyEx(img, cv.MORPH_CLOSE, kernel)
+
+        cv.imshow("Closed + {}".format(shapes_label[i]), closed)
+        cv.waitKey(0)        
+        cv.imwrite("data/closed_{}.png".format(shapes_label[i]), closed)
     
     cv.destroyAllWindows()
 

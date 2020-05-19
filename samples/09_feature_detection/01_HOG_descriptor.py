@@ -96,14 +96,29 @@ def HOGDescriptor(img=None):
 
 def main():
 
-    filename = "person.png"
-    img = cv.imread(filename, cv.IMREAD_GRAYSCALE)
-        
-    # cv.imshow(filename, img)
-    # cv.waitKey(0)
+    # Load image
+
+    img = cv.imread("data/person.jpg")
+
+    if img is None:
+        print("ERROR::CV::Could not read image.")
+        return
+
+    # Resize image
+
+    rows, cols, channels = img.shape
+
+    cv.imshow("img", img)
+    cv.waitKey(0)
+
+    # Convert image from BGR to grayscale
+
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
     img = cv.resize(img, (64, 128))
     img = np.float32(img)
+
+    # Generate HOGDescriptor() function
 
     fd = HOGDescriptor(img)
 

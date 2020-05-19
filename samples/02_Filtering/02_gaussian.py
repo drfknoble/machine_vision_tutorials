@@ -16,8 +16,14 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
+    
+    rows = rows // 2
+    cols = cols // 2
 
-    img = cv.resize(img, (cols // 2, rows // 2))   
+    img = cv.resize(img, (cols, rows))
+
+    cv.imshow("img", img)
+    cv.waitKey(0)
 
     # Convert image from BGR to grayscale
 

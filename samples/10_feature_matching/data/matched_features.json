@@ -1,0 +1,14 @@
+{
+    "ORB": {
+        "img1_detected_kepoints": 956,
+        "img2_detected_kepoints": 967
+    },
+    "BF": {
+        "bf_matched_keypoints": 956,
+        "time_to_match": 0.011962890625
+    },
+    "FLANN": {
+        "FLANN_matched_keypoints": 956,
+        "time_to_match": 0.013033866882324219
+    }
+}

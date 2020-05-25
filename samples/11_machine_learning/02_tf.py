@@ -47,13 +47,19 @@ model.add(tf.keras.layers.Dense(128, activation='relu'))
 model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(10))
 
+# %%
+
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 opt = tf.keras.optimizers.Adam()
 
 model.compile(optimizer=opt, loss=loss_fn, metrics=['accuracy'])
 
+# %%
+
 model.fit(x=x_train, y=y_train, epochs=5)
+
+# %%
 
 model.evaluate(x_test, y_test, verbose=2)
 
@@ -95,3 +101,6 @@ plt.grid(False)
 plt.imshow(x_test[0], cmap=plt.cm.binary)
 plt.xlabel("Label: {}, Prediction: {}, %: {:.3f}".format(
     class_names[labels[0]], class_names[predicted_labels[0]], prediction[0][predicted_labels[0]]))
+
+# %%
+

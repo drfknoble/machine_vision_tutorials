@@ -5,3 +5,5 @@
 **/test_*/**
 **/CMakeSettings.json
 **/out/**
+**/checkpoints/**
+**/saved_models/**

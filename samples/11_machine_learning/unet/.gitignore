@@ -1,4 +1,5 @@
 saved_model/**
 checkpoints/**
-data/**
+data/training/**
+data/validation/**
 predictions/*

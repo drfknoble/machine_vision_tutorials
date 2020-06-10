@@ -32,15 +32,15 @@ def main():
 
     # Apply gaussian noise to img
 
-    img = noise(img, Noise.GAUSSIAN)
+    noisy_img = noise(img, Noise.GAUSSIAN)
 
-    cv.imshow("img", img)
+    cv.imshow("noisy_img", noisy_img)
     cv.waitKey(0)
-    cv.imwrite("data/gaussian_noise_apples.png", img)
+    cv.imwrite("data/gaussian_noise_apples.png", noisy_img)
     
     # Use a gaussian filter to remove noise
 
-    filtered_img = cv.GaussianBlur(img, (3, 3), 0)
+    filtered_img = cv.GaussianBlur(noisy_img, (3, 3), 0)
 
     cv.imshow("gaussian_filtered_img", filtered_img)
     cv.waitKey(0)

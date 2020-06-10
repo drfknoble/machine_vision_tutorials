@@ -39,11 +39,11 @@ def main():
     kernel = np.float32([0, -1, 0, -1, 5, -1, 0, -1, 0])
     kernel = kernel.reshape((3, 3))
 
-    I_img = cv.filter2D(img, cv.CV_8UC3, kernel)
+    sharp_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Sharpened Image", I_img)
+    cv.imshow("Sharpened Image", sharp_img)
     cv.waitKey(0)
-    cv.imwrite("data/sharp_img.png", I_img)
+    cv.imwrite("data/sharp_img.png", sharp_img)
 
     # Kernel, K = 1/9 * [1, 1, 1; 1, 1, 1; 1, 1, 1]
 
@@ -61,11 +61,11 @@ def main():
     kernel = 1.0/16.0 * np.float32([1, 2, 1, 2, 4, 2, 1, 2, 1])
     kernel = kernel.reshape((3, 3))
 
-    box_img = cv.filter2D(img, cv.CV_8UC3, kernel)
+    gaussian_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Gaussian Blurred Image", box_img)
+    cv.imshow("Gaussian Blurred Image", gaussian_img)
     cv.waitKey(0)
-    cv.imwrite("data/gaussian_img.png", box_img)
+    cv.imwrite("data/gaussian_img.png", gaussian_img)
 
     # Kernel, K = [1, 0, 0; 0, 1, 0; 0, 0, 1]
 

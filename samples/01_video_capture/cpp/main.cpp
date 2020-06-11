@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
         cv::Mat frame;
 
-        camera >> frame;
+        bool ret = camera.read(frame);
 
         cv::imshow("frame", frame);
 

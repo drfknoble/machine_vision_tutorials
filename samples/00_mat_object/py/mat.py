@@ -23,9 +23,6 @@ cv.waitKey(1)
 
 sub_img = img - background_img
 
-green_count = 5
-cv.putText(sub_img, "There are {} of green apples".format(green_count), (20, 20), cv.FONT_HERSHEY_PLAIN, 1.0, 255)
-
 cv.imshow("sub_img", sub_img)
 cv.waitKey(0)
 

@@ -26,7 +26,7 @@ endif()
 
 # build
 
-add_executable(main main.cpp main.hpp)
+add_executable(main "video.cpp" "video.hpp")
 target_link_libraries(main ${OpenCV_LIBS})
 
 foreach(file ${OPENCV_DLLS})

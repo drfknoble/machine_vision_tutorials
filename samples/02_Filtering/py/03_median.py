@@ -12,7 +12,7 @@ def main():
 
     if img is None:
         print("ERROR::CV::Could not read image.")
-        return
+        return 1
 
     # Resize image
 

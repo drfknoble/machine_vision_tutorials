@@ -27,8 +27,6 @@ int main(int argc, char* argv[])
 	cv::imshow("img", img);
 	cv::waitKey(0);
 
-	cv::destroyAllWindows();
-
     // Convert image form BGR to grayscale
 
     cv::cvtColor(img,img, cv::COLOR_BGR2GRAY);

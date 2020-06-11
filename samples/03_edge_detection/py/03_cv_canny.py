@@ -29,7 +29,7 @@ def main():
 
     canny = cv.Canny(img, 25, 255)
 
-    cv.imshow("OpenCV Canny", canny)
+    cv.imshow("OpenCV Canny()", canny)
     cv.waitKey(0)
     cv.imwrite("data/cv_canny.png", canny)
 

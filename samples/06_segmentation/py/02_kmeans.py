@@ -42,7 +42,6 @@ def main():
 
         cv.imshow("Quantized Image, K = {}".format(K), quantized)
         cv.waitKey(0)
-
         cv.imwrite("data/quantized_image_{}.png".format(K), quantized)
 
     cv.destroyAllWindows()

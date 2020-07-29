@@ -25,6 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(OpenCV REQUIRED PATHS "C:/opencv/build")
 
 if(ANDROID)
   add_library(qt_opencv SHARED
@@ -32,6 +33,8 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    opencv_algorithm.h
+    opencv_algorithm.cpp
   )
 else()
   add_executable(qt_opencv
@@ -39,7 +42,9 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    opencv_algorithm.h
+    opencv_algorithm.cpp
   )
 endif()
 
-target_link_libraries(qt_opencv PRIVATE Qt5::Widgets)
+target_link_libraries(qt_opencv PRIVATE Qt5::Widgets ${OpenCV_LIBS})

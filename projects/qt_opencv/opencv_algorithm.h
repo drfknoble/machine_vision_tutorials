@@ -15,6 +15,7 @@ public:
 
 signals:
     void sig_updateCameras(const QVector<int> &devices);
+    void sig_cameraOpened();
     void sig_updateFrame();
 
 public slots:

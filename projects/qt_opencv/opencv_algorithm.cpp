@@ -36,7 +36,16 @@ void opencv_algorithm::slot_openCamera(const int &device)
 {
     qDebug() << "slot_openCamera";
 
+    if (camera->isOpened())
+    {
+        camera->release();
+    }
+
     camera->open(device);
+
+    emit sig_cameraOpened();
+
+    slot_getFrame();
 
 }
 
@@ -44,5 +53,17 @@ void opencv_algorithm::slot_getFrame()
 {
     qDebug() << "slot_getFrame";
 
-    emit sig_updateFrame();
+    cv::Mat frame {};
+
+    bool ret = camera->read(frame);
+
+    qDebug() << ret;
+
+    if (ret)
+    {
+        cv::imshow("frame", frame);
+        cv::waitKey(1);
+
+        emit sig_updateFrame();
+    }
 }

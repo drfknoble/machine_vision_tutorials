@@ -50,4 +50,5 @@ void MainWindow::on_pushButton_clicked()
     device = ui->comboBox->currentText().toInt();
 
     emit sig_openCamera(device);
+
 }

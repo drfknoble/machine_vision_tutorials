@@ -20,6 +20,9 @@ int main(int argc, char *argv[])
     con = QObject::connect(&w, SIGNAL(sig_getCameras()), &alg, SLOT(slot_getCameras()));
     qDebug() << con;
 
+    con = QObject::connect(&w, SIGNAL(sig_openCamera(const int&)), &alg, SLOT(slot_openCamera(const int&)));
+    qDebug()<< con;
+
     con = QObject::connect(&w, SIGNAL(sig_getFrame()), &alg, SLOT(slot_getFrame()));
     qDebug() << con;
 

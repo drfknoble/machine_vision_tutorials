@@ -71,16 +71,3 @@ Thumbs.db
 *.dll
 *.exe
 
-## Custom
-
-**/activities/**
-**/bin/**
-**/build/**
-**/build*/**
-**/.vs/**
-**/.vscode/**
-**/test_*/**
-**/CMakeSettings.json
-**/out/**
-**/checkpoints/**
-**/saved_models/**

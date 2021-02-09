@@ -25,7 +25,7 @@ private:
 	QLineEdit *debugLine;
 
 	QPushButton *quitButton;
-	
+
 public slots:
 
 	void slot_updateView(const QImage&);

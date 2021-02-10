@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 
+
 def main():
 
     img = np.zeros((480, 640, 1), dtype=np.uint8)
@@ -30,6 +31,9 @@ def main():
     cv.imwrite("../images/01/03.PNG", sub_img)
 
     cv.destroyAllWindows()
+
+    return 0
+
 
 if __name__ == '__main__':
     main()

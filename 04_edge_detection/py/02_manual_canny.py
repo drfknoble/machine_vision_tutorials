@@ -6,7 +6,7 @@ def main():
 
     # Load image
 
-    img = cv.imread("data/apples.png")
+    img = cv.imread("data/apples.PNG")
 
     if img is None:
         print("ERROR::CV::Could not read image.")
@@ -36,7 +36,7 @@ def main():
 
     blur = cv.GaussianBlur(gray, (5, 5), 0)
 
-    cv.imwrite("data/manual_canny_blurred.png", blur)
+    cv.imwrite("data/manual_canny_blurred.PNG", blur)
     cv.imwrite('../images/02/02.PNG', blur)
 
     # Apply Sobel operator
@@ -62,7 +62,7 @@ def main():
     theta = np.arctan2(sobely_64, sobelx_64)
     angle = np.rad2deg(theta)
 
-    cv.imwrite("data/manual_canny_G.png", G)
+    cv.imwrite("data/manual_canny_G.PNG", G)
     cv.imwrite('../images/02/03.PNG', G)
 
     # Non-maximum suppression
@@ -106,7 +106,7 @@ def main():
 
                 non_max[i, j] = 0
 
-    cv.imwrite("data/manual_canny_non_max.png", non_max)
+    cv.imwrite("data/manual_canny_non_max.PNG", non_max)
     cv.imwrite('../images/02/04.PNG', non_max)
 
     # Double threshold
@@ -145,7 +145,7 @@ def main():
 
     cv.imshow("Manual Canny", out)
     cv.waitKey(0)
-    cv.imwrite("data/manual_canny.png", out)
+    cv.imwrite("data/manual_canny.PNG", out)
     cv.imwrite('../images/02/05.PNG', out)
 
     cv.destroyAllWindows()

@@ -71,7 +71,7 @@ import cv2 as cv
 import numpy as np
 ```
 
-This snippet  will import OpenCV's python module as `cv` and NumPy's python module as `np`.
+OpenCV's Python module `cv2` is imported as `cv` and NumPy's Python module `numpy` is imported as `np`.
 
 ---
 
@@ -88,7 +88,7 @@ def main():
     cv.waitKey(1)
 ```
 
-This snippet begins `main()`'s definition; defines an array named `img`; draws a filled rectangle on it; and then displays the array in the `img` window.
+This begins `main()`'s definition. `zeros()` creates a 480 x 640 x 1 array of 0's and assigns it to array `img`. A filled rectangle is drawn on the `img`. The array is then displayed in the `img` window.
 
 ---
 
@@ -112,7 +112,7 @@ Type the following code into `mat.py`:
     cv.waitKey(1)
 ```
 
-This snippet defines arrays named `background_img_1` and `background_img_2`; draws filled rectangles on them; adds the arrays together; and then displays the result in the `background_img` window.
+`zeros()` creates a two arrays of 0's and assigns them to arrays `background_img_1` and `background_img_2`. Filled rectangles are drawn on them. The arrays are added together and the result  is assigned to `background_img` The array is then displayed in the `background_img` window.
 
 ---
 
@@ -134,7 +134,7 @@ Type the following code into `mat.py`:
     return 0
 ```
 
-This snippet defines an array named `sub_img`, which is assigned the difference between `img` and `background_img`; displays the array in the `sub_img` window; and then waits for user input before destroying all windows.
+`background_img` is subtracted from `img` and the result assigned to array `sub_img`. The array is then displayed in the `sub_img` window. `main()` waits for user input before destroying all windows.
 
 ---
 
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     main()
 ```
 
-This snippet will call `main()` when the `mat.py` is run.
+`main()` will be called when the `mat.py` is run.
 
 ---
 

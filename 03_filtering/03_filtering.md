@@ -49,9 +49,9 @@ C:/Users/%USER%/Documents
 
 In `C:/Users/%USER%/Documents` create a new folder named `opencv_02`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it.
 
-In `C:/Users/%USER%/Documents/opencv_02` create a new folder named `data`. Download `apples.png` from [here](https://github.com/DrFKNoble/machine_vision_tutorials/blob/master/02_filtering/images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_02/data`.
+In `C:/Users/%USER%/Documents/opencv_02` create a new folder named `data`. Download `apples.PNG` from [here](images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_02/data`.
 
-In `C:/Users/%USER%/Documents/opencv_02` create new files named `filter.py`, `gaussian.py`, and `median.py`. To create a new file: Right click on `/opencv_02` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
+In `C:/Users/%USER%/Documents/opencv_02` create new files named `filter.py`. To create a new file: Right click on `/opencv_02` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
 
 ---
 
@@ -60,10 +60,8 @@ In `C:/Users/%USER%/Documents/opencv_02` create new files named `filter.py`, `ga
 ```
 /opencv_02
     /data
-        apple.png
+        apple.PNG
     filter.py
-    gaussian.py
-    median.py
 ```
 
 ---
@@ -77,7 +75,7 @@ import cv2 as cv
 import numpy as np
 ```
 
-This snippet  will import OpenCV's python module as `cv` and NumPy's python module as `np`.
+OpenCV's Python module `cv2` is imported as `cv` and NumPy's Python module `numpy` is imported as `np`.
 
 ---
 
@@ -86,14 +84,14 @@ Type the following code into `filter.py`:
 ```python
 def main():
 
-    img = cv.imread('data/apples.png')
+    img = cv.imread('data/apples.PNG')
 
     if img is None:
         print('ERROR::CV::Could not read image.')
         return 1
 ```
 
-This snippet begins `main()`'s definition. It defines an array named `img`, which is assigned `imread()`'s results. If the array is empty, a message is displayed and the `main()` returns 1.
+This begins `main()`'s definition. `imread()` reads an image from a directory and assigns the results to array `img`. If the array is empty, a message is displayed and the `main()` returns 1.
 
 ---
 
@@ -111,11 +109,11 @@ Type the following code into `filter.py`:
     cv.waitKey(1)
 ```
 
-This snippet defines three variables named `rows`, `cols`, and `channels`, which are assigned `img`'s shape. `rows` and `cols` are divided by 2 (rounded down). `resize()` resizes `img` to the new shape defined by `cols` and `row`. The array is then displayed in the `img` window.
+`img`'s shape is assigned to integers `rows`, `cols`, and `channels`. `rows` and `cols` are divided by 2 (rounded down) and the results assigned to themselves. `resize()` resizes `img` to shape `cols` x `rows` and the result is assigned to itself. The array is then displayed in the `img` window.
 
 ---
 
-![height:300](images/01/01.PNG)
+![height:480](images/01/01.PNG)
 *Figure:* The `img` array.
 
 ---
@@ -128,12 +126,12 @@ Type the following code into `filter.py`:
 
     I_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow('Identity Image', I_img)
+    cv.imshow('I_img', I_img)
     cv.waitKey(1)
-    cv.imwrite('data/I_img.png', I_img)
+    cv.imwrite('data/I_img.PNG', I_img)
 ```
 
-This snippet defines an array named `kernel`, which is assigned the identity kernel's values. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `I_img`. The array is displayed in the `I_img` window and saved as `I_img.png` in `/data`.
+`float32()` creates an array of the identity kernel's values and assigns it to array `kernel`. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `I_img`. The array is then displayed in the `I_img` window and saved as `I_img.PNG` in `/data`.
 
 ---
 
@@ -150,12 +148,12 @@ Type the following code into `filter.py`:
 
     sharp_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow('Sharpened Image', sharp_img)
+    cv.imshow('sharp_img', sharp_img)
     cv.waitKey(1)
-    cv.imwrite('data/sharp_img.png', sharp_img)
+    cv.imwrite('data/sharp_img.PNG', sharp_img)
 ```
 
-This snippet defines an array named `kernel`, which is assigned the sharpen kernel's values. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `sharp_img`. The array is displayed in the `sharp_img` window and saved as `sharp_img.png` in `/data`.
+`float32()` creates an array of the sharpen kernel's values and assigns it to array `kernel`. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `sharp_img`. The array is then displayed in the `sharp_img` window and saved as `sharp_img.PNG` in `/data`.
 
 ---
 
@@ -172,12 +170,12 @@ Type the following code into `filter.py`:
 
     box_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow('Box Blurred Image', box_img)
+    cv.imshow('box_img', box_img)
     cv.waitKey(1)
-    cv.imwrite('data/box_img.png', box_img)
+    cv.imwrite('data/box_img.PNG', box_img)
 ```
 
-This snippet defines an array named `kernel`, which is assigned the box blur kernel's values. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `box_img`. The array is displayed in the `box_img` window and saved as `box_img.png` in `/data`.
+`float32()` creates an array of the box kernel's values and assigns it to array `kernel`. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `box_img`. The array is then displayed in the `box_img` window and saved as `box_img.PNG` in `/data`.
 
 ---
 
@@ -194,12 +192,12 @@ Type the following code into `filter.py`:
 
     gaussian_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow('Gaussian Blurred Image', gaussian_img)
+    cv.imshow('gaussian_img', gaussian_img)
     cv.waitKey(1)
-    cv.imwrite('data/gaussian_img.png', gaussian_img)
+    cv.imwrite('data/gaussian_img.PNG', gaussian_img)
 ```
 
-This snippet defines an array named `kernel`, which is assigned the gaussian blur kernel's values. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `gaussian_img`. The array is displayed in the `gaussian_img` window and saved as `gaussian_img.png` in `/data`.
+`float32()` creates an array of the gaussian kernel's values and assigns it to array `kernel`. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `gaussian_img`. The array is then displayed in the `gaussian_img` window and saved as `gaussian_img.PNG` in `/data`.
 
 ---
 
@@ -216,16 +214,16 @@ Type the following code into `filter.py`:
 
     edge_img = cv.filter2D(img, cv.CV_8UC3, kernel)
   
-    cv.imshow('Edges Image', edge_img)
+    cv.imshow('edge_img', edge_img)
     cv.waitKey(0)
-    cv.imwrite('data/edge_img.png', edge_img)
+    cv.imwrite('data/edge_img.PNG', edge_img)
 
     cv.destroyAllWindows()
 
     return 0
 ```
 
-This snippet defines an array named `kernel`, which is assigned the edge detection kernel's values. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `edge_img`. The array is displayed in the `edge_img` window and saved as `edge_img.png` in `/data`.
+`float32()` creates an array of the edge detection kernel's values and assigns it to array `kernel`. `reshape()` reshapes `kernel` into a 3 x 3 array. `filter2D()` applies the kernel to `img` and assigns the results to `edge_img`. The array is then displayed in the `edge_img` window and saved as `edge_img.PNG` in `/data`.
 
 ---
 
@@ -242,7 +240,7 @@ if __name__ == '__main__':
     main()
 ```
 
-This snippet will call `main()` when the `filter.py` is run.
+`main()` will be called when the `filter.py` is run.
 
 ---
 

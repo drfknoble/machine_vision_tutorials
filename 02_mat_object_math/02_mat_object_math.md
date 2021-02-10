@@ -4,7 +4,7 @@ paginate: true
 theme: default
 ---
 
-# **Presentation**
+# **Numpy and OpenCV**
 
 Dr Frazer Noble
 
@@ -47,22 +47,24 @@ C:/Users/%USER%/Documents
 
 ---
 
-In `C:/Users/%USER%/Documents` create a new folder named `opencv_01`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it `opencv_01`.
+In `C:/Users/%USER%/Documents` create a new folder named `opencv_01`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it.
 
-In `C:/Users/%USER%/Documents/opencv_01` create a new file named `main.py`. To create a new file: Right click on `opencv_01` in the Explorer tab, left click `New File`, and rename it `main.py`. The file will open automatically.
+In `C:/Users/%USER%/Documents/opencv_01` create a new file named `mat.py`. To create a new file: Right click on `/opencv_01` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
 
-`opencv_01` should contain the following files and folders:
+---
+
+`/opencv_01` should contain the following files and folders:
 
 ```
-/opencv_01/
-    main.py
+/opencv_01
+    mat.py
 ```
 
 ---
 
-# **`main.py`**
+# **`mat.py`**
 
-Type the following code into `main.py`:
+Type the following code into `mat.py`:
 
 ```python
 import cv2 as cv
@@ -73,7 +75,7 @@ This snippet  will import OpenCV's python module as `cv` and NumPy's python modu
 
 ---
 
-Type the following code into `main.py`:
+Type the following code into `mat.py`:
 
 ```python
 def main():
@@ -90,12 +92,12 @@ This snippet begins `main()`'s definition; defines an array named `img`; draws a
 
 ---
 
-![height:480](images/01/01.PNG)  
-*Figure*: The `img` array.
+![height:400](images/01/01.PNG)  ![height:400](images/01/04.PNG)  
+*Figure*: (Left) The `img` array; and (Right) `img` displayed in the `img` window.
 
 ---
 
-Type the following code into `main.py`:
+Type the following code into `mat.py`:
 
 ```python
     background_img_1 = np.zeros((480, 640, 1), dtype=np.uint8)
@@ -114,12 +116,12 @@ This snippet defines arrays named `background_img_1` and `background_img_2`; dra
 
 ---
 
-![height:480](images/01/02.PNG)
-*Figure*: The `background_img` array.
+![height:400](images/01/02.PNG)  ![height:400](images/01/05.PNG)
+*Figure*: (Left) The `background_img` array; and (Right) `background_img` displayed in the `background_img` window.
 
 ---
 
-Type the following code into `main.py`:
+Type the following code into `mat.py`:
 
 ```python
     sub_img = img - background_img
@@ -136,43 +138,36 @@ This snippet defines an array named `sub_img`, which is assigned the difference 
 
 ---
 
-![height:480](images/01/03.PNG)
-*Figure*: The `sub_img` array.
+![height:400](images/01/03.PNG)  ![height:400](images/01/06.PNG)
+*Figure*: (Left) The `sub_img` array; and (Right) `sub_img` displayed in the `sub_img` window.
 
 ---
 
-Type the following code into `main.py`:
+Type the following code into `mat.py`:
 
 ```python
 if __name__ == '__main__':
     main()
 ```
 
-This snippet will call `main()` when the `main.py` is run.
+This snippet will call `main()` when the `mat.py` is run.
 
 ---
 
-# **Run `main.py`**
+# **Run `mat.py`**
 
 Open a new terminal in Visual Studio Code. To open a new terminal: Left click `View > Terminal` or press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
 
 Type the following commands into the terminal and then press <kbd>Enter</kbd> after each one:
 
 ```
-cd ./opencv_01/
-python main.py
+cd ./opencv_01
+python mat.py
 ```
 
-This will change the current directory to the `opencv_01/` sub-directory and then run `main.py`.
+This will change the current directory to the `/opencv_01` sub-directory and then run `mat.py`.
 
-Press any key to close the windows and stop `main.py`.
-
----
-
-# **Output**
-
-![height:240](images/01/04.PNG)  ![height:240](images/01/05.PNG)  ![height:240](images/01/06.PNG)
-*Figure*: (Left) `img` displayed in the `img` window; (Middle) `background_img` displayed in the `background_img` window; and (Right) `img_sub` displayed in the `img_sub` window.
+Press any key to close the windows and stop `mat.py`.
 
 ---
 

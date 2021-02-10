@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 
+
 def main():
 
     # Load image
@@ -9,11 +10,11 @@ def main():
 
     if img is None:
         print("ERROR::CV::Could not read image.")
-        return
+        return 1
 
     # Resize image
     rows, cols, channels = img.shape
-    
+
     rows = rows // 2
     cols = cols // 2
 
@@ -62,7 +63,9 @@ def main():
     cv.imwrite("data/sobel_edges.png", G)
     cv.imwrite('../images/01/04.PNG', G)
 
-    return
+    cv.destroyAllWindows()
+
+    return 0
 
 
 if __name__ == "__main__":

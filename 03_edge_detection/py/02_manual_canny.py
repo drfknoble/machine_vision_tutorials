@@ -23,6 +23,7 @@ def main():
 
     cv.imshow("img", img)
     cv.waitKey(0)
+    cv.imwrite('../images/02/01.PNG', img)
 
     # The manual implementation of the Canny algorithm is a bit slow, so
     print("Please wait...")
@@ -36,6 +37,7 @@ def main():
     blur = cv.GaussianBlur(gray, (5, 5), 0)
 
     cv.imwrite("data/manual_canny_blurred.png", blur)
+    cv.imwrite('../images/02/02.PNG', blur)
 
     # Apply Sobel operator
 
@@ -61,6 +63,7 @@ def main():
     angle = np.rad2deg(theta)
 
     cv.imwrite("data/manual_canny_G.png", G)
+    cv.imwrite('../images/02/03.PNG', G)
 
     # Non-maximum suppression
 
@@ -104,6 +107,7 @@ def main():
                 non_max[i, j] = 0
 
     cv.imwrite("data/manual_canny_non_max.png", non_max)
+    cv.imwrite('../images/02/04.PNG', non_max)
 
     # Double threshold
 
@@ -141,7 +145,8 @@ def main():
 
     cv.imshow("Manual Canny", out)
     cv.waitKey(0)
-    cv.imwrite("data/manual_canny.png", G)
+    cv.imwrite("data/manual_canny.png", out)
+    cv.imwrite('../images/02/05.PNG', out)
 
     cv.destroyAllWindows()
 

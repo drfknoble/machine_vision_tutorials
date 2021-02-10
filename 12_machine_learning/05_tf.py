@@ -61,7 +61,7 @@ print(val_dog_images)
 batch_size = 16
 img_height = 150
 img_width = 150
-epochs = 1
+epochs = 3
 steps_per_epoch = np.ceil(tr_cat_images / batch_size)
 
 train_image_generator = tf.keras.preprocessing.image.ImageDataGenerator(

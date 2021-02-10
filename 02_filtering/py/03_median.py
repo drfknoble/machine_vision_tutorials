@@ -24,7 +24,8 @@ def main():
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/03/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -35,8 +36,9 @@ def main():
     salt_img = noise(img, Noise.SALT_PEPPER)
 
     cv.imshow("salt_img", salt_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/salt_noise_apples.png", salt_img)
+    cv.imwrite('../images/03/02.PNG', salt_img)
     
     # Use a median filter to remove noise
 
@@ -45,6 +47,7 @@ def main():
     cv.imshow("median_salt_filtered_img", filtered_img)
     cv.waitKey(0)
     cv.imwrite("data/median_filtered_apples.png", filtered_img)
+    cv.imwrite('../images/03/03.PNG', filtered_img)
 
     cv.destroyAllWindows()
    

@@ -4,6 +4,7 @@ import numpy as np
 np.set_printoptions(precision=3,
                     suppress=True)
 
+
 def HOGDescriptor(img=None):
 
     g_row = np.empty(img.shape, dtype=np.float32)
@@ -29,7 +30,8 @@ def HOGDescriptor(img=None):
     n_cells_row = s_row // c_row
     n_cells_col = s_col // c_col
 
-    bin_histogram = np.zeros((n_cells_row, n_cells_col, number_of_bins), dtype=np.float32)
+    bin_histogram = np.zeros(
+        (n_cells_row, n_cells_col, number_of_bins), dtype=np.float32)
 
     number_of_bins_per_180 = 180 / number_of_bins
 
@@ -53,18 +55,18 @@ def HOGDescriptor(img=None):
                         cell_col_index = cell_col + c
 
                         if (ang[cell_row_index, cell_col_index] < orientation_start or
-                            ang[cell_row_index, cell_col_index] >= orientation_end):
+                                ang[cell_row_index, cell_col_index] >= orientation_end):
 
                             continue
 
                         total += mag[cell_row_index, cell_col_index]
 
                 bin_histogram[r_i, c_i, i] = total / (pixels_per_cell ** 2)
-       
+
     n_blocks_row = (n_cells_row - b_row) + 1
     n_blocks_col = (n_cells_col - b_col) + 1
 
-    normalised_blocks = np.zeros((n_blocks_row, n_blocks_col, 
+    normalised_blocks = np.zeros((n_blocks_row, n_blocks_col,
                                   b_row, b_col, number_of_bins))
 
     for r in range(n_blocks_row):
@@ -87,7 +89,8 @@ def HOGDescriptor(img=None):
                 block = np.minimum(block, 0.2)
                 block = block / np.sqrt(np.sum(block ** 2) + eps ** 2)
             else:
-                raise ValueError('Selected block normalization method is invalid.')
+                raise ValueError(
+                    'Selected block normalization method is invalid.')
 
             normalised_blocks[r, c, :] = block
 
@@ -98,7 +101,7 @@ def main():
 
     # Load image
 
-    img = cv.imread("data/person.jpg")
+    img = cv.imread("data/person.png")
 
     if img is None:
         print("ERROR::CV::Could not read image.")

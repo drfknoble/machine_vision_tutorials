@@ -20,7 +20,8 @@ def main():
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/01/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -35,8 +36,9 @@ def main():
     G_x = np.uint8(G_x)
 
     cv.imshow("Vertical Edges", G_x)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/sobel_vertical_edges.png", G_x)
+    cv.imwrite('../images/01/02.PNG', G_x)
 
     horizontal = np.float32([-1, -2, -1, 0, 0, 0, 1, 2, 1])
     horizontal = horizontal.reshape((3, 3))
@@ -47,8 +49,9 @@ def main():
     G_y = np.uint8(G_y)
 
     cv.imshow("Horizontal Edges", G_y)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/sobel_horizontal_edges.png", G_y)
+    cv.imwrite('../images/01/03.PNG', G_y)
 
     G = np.hypot(G_x, G_y)
     G = G/G.max() * 255
@@ -57,6 +60,7 @@ def main():
     cv.imshow("Magnitude", G)
     cv.waitKey(0)
     cv.imwrite("data/sobel_edges.png", G)
+    cv.imwrite('../images/01/04.PNG', G)
 
     return
 

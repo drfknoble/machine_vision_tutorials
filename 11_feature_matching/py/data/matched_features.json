@@ -5,10 +5,10 @@
     },
     "BF": {
         "bf_matched_keypoints": 956,
-        "time_to_match": 0.011962890625
+        "time_to_match": 0.0039653778076171875
     },
     "FLANN": {
         "FLANN_matched_keypoints": 956,
-        "time_to_match": 0.013033866882324219
+        "time_to_match": 0.006986856460571289
     }
 }

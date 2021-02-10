@@ -4,7 +4,6 @@ import numpy as np
 from utils import noise, Noise
 
 
-
 def main():
 
     # Load image
@@ -18,14 +17,15 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
-    
+
     rows = rows // 2
     cols = cols // 2
 
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/06/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -34,10 +34,11 @@ def main():
     # Apply salt and pepper noise to img
 
     img = noise(img, Noise.SALT_PEPPER)
-    
+
     cv.imshow("gray_salt_image", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/gray_salt_noise_apples.png", img)
+    cv.imwrite('../images/06/02.PNG', img)
 
     # Erode using different shapes
 
@@ -52,8 +53,11 @@ def main():
         dilated = cv.dilate(img, kernel)
 
         cv.imshow("Dilated + {}".format(shapes_label[i]), dilated)
-        cv.waitKey(0)        
-        cv.imwrite("data/gray_salt_dilated_{}.png".format(shapes_label[i]), dilated)
+        cv.waitKey(0)
+        cv.imwrite(
+            "data/gray_salt_dilated_{}.png".format(shapes_label[i]), dilated)
+        cv.imwrite('../images/06/0{}.PNG'.format(i+3), dilated)
+
 
     return
 

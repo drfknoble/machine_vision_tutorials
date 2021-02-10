@@ -24,7 +24,8 @@ def main():
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/02/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -35,8 +36,9 @@ def main():
     noisy_img = noise(img, Noise.GAUSSIAN)
 
     cv.imshow("noisy_img", noisy_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/gaussian_noise_apples.png", noisy_img)
+    cv.imwrite('../images/02/02.PNG', noisy_img)
     
     # Use a gaussian filter to remove noise
 
@@ -45,6 +47,7 @@ def main():
     cv.imshow("gaussian_filtered_img", filtered_img)
     cv.waitKey(0)
     cv.imwrite("data/gaussian_filtered_apples.png", filtered_img)
+    cv.imwrite('../images/02/03.PNG', filtered_img)
 
     cv.destroyAllWindows()
    

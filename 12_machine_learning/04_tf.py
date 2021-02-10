@@ -89,3 +89,4 @@ train_ds = prepare_for_training(labeled_ds)
 image_batch, label_batch = next(iter(train_ds))
 
 show_batch(image_batch.numpy(), label_batch.numpy(), class_names)
+# %%

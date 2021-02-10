@@ -51,3 +51,4 @@ print(len(label_batch[0]))
 print(label_batch[0])
 
 show_batch(image_batch, label_batch, class_names)
+# %%

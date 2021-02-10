@@ -17,7 +17,8 @@ def main():
     rows, cols, channels = img.shape
     
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/01/01.PNG', img)
 
     # Detect lines' edges
 
@@ -45,6 +46,7 @@ def main():
     cv.imshow("hough_lines", draw)
     cv.waitKey(0)
     cv.imwrite("data/hough_lines.png", draw)
+    cv.imwrite('../images/01/02.PNG', draw)
     
     return
 

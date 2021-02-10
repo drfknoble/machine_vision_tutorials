@@ -22,7 +22,8 @@ def main():
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/01/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -32,8 +33,9 @@ def main():
 
     plt.hist(img.ravel(), 256, [0, 256])
     plt.savefig("data/threshold_histogram.png")
+    plt.savefig("../images/01/02.PNG")
     plt.show()
-
+    
     thresholds = [0, 100, 150, 255]
 
     thresholded_img = np.zeros((rows, cols), dtype=np.uint8)
@@ -45,13 +47,16 @@ def main():
         thresholded_img = np.uint8(thresholded_img / 255) * thresholds[i + 1]
 
         cv.imshow("Thresholded Image", thresholded_img)
-        cv.waitKey(0)
+        cv.waitKey(1)
+        cv.imwrite('../images/01/0{}.PNG'.format(i + 3), thresholded_img)
+
 
         result_img = result_img + thresholded_img
 
     cv.imshow("Result Image", result_img)
     cv.waitKey(0)
     cv.imwrite("data/threshold_segemented_image.png", result_img)
+    cv.imwrite('../images/01/06.PNG', result_img)
 
     cv.destroyAllWindows()   
 

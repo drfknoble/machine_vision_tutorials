@@ -17,15 +17,16 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
-    
+
     rows = rows // 2
     cols = cols // 2
 
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
-   
+    cv.waitKey(1)
+    cv.imwrite('../images/03/01.PNG', img)
+
     data = open("data/matched_features.json", "w")
 
     json_data = {}
@@ -45,8 +46,9 @@ def main():
     transformed_img = np.uint8(transformed_img)
 
     cv.imshow("Transformed Image", transformed_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/transformed_img.png", transformed_img)
+    cv.imwrite('../images/03/02.PNG', transformed_img)
 
     # ORB
 
@@ -57,11 +59,11 @@ def main():
     kp1, des1 = orb.detectAndCompute(img, None)
     kp2, des2 = orb.detectAndCompute(transformed_img, None)
 
-    json_data.update( {
-        "ORB" :
+    json_data.update({
+        "ORB":
         {
-            "img1_detected_kepoints" : len(kp1),
-            "img2_detected_kepoints" : len(kp2)
+            "img1_detected_kepoints": len(kp1),
+            "img2_detected_kepoints": len(kp2)
         },
     })
 
@@ -76,19 +78,21 @@ def main():
 
     elapsed = time.time() - start
 
-    matches = sorted(matches, key=lambda x:x.distance)
+    matches = sorted(matches, key=lambda x: x.distance)
 
-    out = cv.drawMatches(img, kp1, transformed_img, kp2, matches[:best_matches], None, [0, 0, 255])
+    out = cv.drawMatches(img, kp1, transformed_img, kp2,
+                         matches[:best_matches], None, [0, 0, 255])
 
     cv.imshow("BF Matches", out)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/bf_matched.png", out)
+    cv.imwrite('../images/03/03.PNG', out)
 
-    json_data.update( {
-        "BF" :
+    json_data.update({
+        "BF":
         {
-            "bf_matched_keypoints" : len(matches),
-            "time_to_match" : elapsed
+            "bf_matched_keypoints": len(matches),
+            "time_to_match": elapsed
         }
 
     })
@@ -96,11 +100,11 @@ def main():
     # FLANN
 
     FLANN_INDEX_LSH = 6
-    index_settings = dict(algorithm = FLANN_INDEX_LSH,
-                          table_number = 6,
-                          key_size = 12,
-                          multi_probe_level = 1)
-    search_settings = dict(checks = 50)
+    index_settings = dict(algorithm=FLANN_INDEX_LSH,
+                          table_number=6,
+                          key_size=12,
+                          multi_probe_level=1)
+    search_settings = dict(checks=50)
 
     start = time.time()
 
@@ -109,25 +113,25 @@ def main():
 
     elapsed = time.time() - start
 
-    matches = sorted(matches, key=lambda x:x.distance)
+    matches = sorted(matches, key=lambda x: x.distance)
 
-    out = cv.drawMatches(img, kp1, transformed_img, kp2, matches[:best_matches], None, [0, 0, 255])
+    out = cv.drawMatches(img, kp1, transformed_img, kp2,
+                         matches[:best_matches], None, [0, 0, 255])
 
     cv.imshow("FLANN Matches", out)
     cv.waitKey(0)
     cv.imwrite("data/flann_matched.png", out)
+    cv.imwrite('../images/03/04.PNG', out)
 
-
-    json_data.update( {
-        "FLANN" :
+    json_data.update({
+        "FLANN":
         {
-            "FLANN_matched_keypoints" : len(matches),
-            "time_to_match" : elapsed
+            "FLANN_matched_keypoints": len(matches),
+            "time_to_match": elapsed
 
         }
 
     })
-
 
     json.dump(json_data, data)
 

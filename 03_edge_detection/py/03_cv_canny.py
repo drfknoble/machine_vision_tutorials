@@ -20,6 +20,7 @@ def main():
 
     cv.imshow("img", img)
     cv.waitKey(0)
+    cv.imwrite('../images/03/01.PNG', img)
 
     # Convert image from BGR to grayscale
 
@@ -32,6 +33,7 @@ def main():
     cv.imshow("OpenCV Canny()", canny)
     cv.waitKey(0)
     cv.imwrite("data/cv_canny.png", canny)
+    cv.imwrite('../images/03/02.PNG', canny)
 
     cv.destroyAllWindows()
 

@@ -2,13 +2,15 @@ import cv2 as cv
 import numpy as np
 import random
 
+
 def main():
 
     # Create shapes
 
     image1 = np.zeros((480, 640, 1), np.uint8)
 
-    coordinates = [(int(random.random() * 640), int(random.random() * 480)) for _ in range(40)]
+    coordinates = [(int(random.random() * 640), int(random.random() * 480))
+                   for _ in range(40)]
 
     for c in coordinates:
 
@@ -16,7 +18,8 @@ def main():
 
     #  Find contorus
 
-    contours, hierarchy = cv.findContours(image1, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv.findContours(
+        image1, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
     image2 = np.zeros((480, 640, 3), np.uint8)
 
@@ -24,17 +27,20 @@ def main():
 
     for i, c in enumerate(contours):
 
-        colour = (random.random() * 255, random.random() * 255, random.random() * 255)
+        colour = (random.random() * 255, random.random()
+                  * 255, random.random() * 255)
 
         cv.drawContours(image2, contours, i, colour, -1)
 
     cv.imshow("image1", image1)
     cv.waitKey(0)
     cv.imwrite("data/image_1.png", image1)
+    cv.imwrite('../images/01/01.PNG', image1)
 
     cv.imshow("image2", image2)
     cv.waitKey(0)
     cv.imwrite("data/image_2.png", image2)
+    cv.imwrite('../images/01/02.PNG', image2)
 
     cv.destroyAllWindows()
 

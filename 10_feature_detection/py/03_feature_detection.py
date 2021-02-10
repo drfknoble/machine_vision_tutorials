@@ -17,15 +17,16 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
-    
+
     rows = rows // 2
     cols = cols // 2
 
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
-   
+    cv.waitKey(1)
+    cv.imwrite('../images/03/01.PNG', img)
+
     data = open("data/detected_features.json", "w")
 
     json_data = {}
@@ -43,16 +44,17 @@ def main():
     kaze_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("KAZE Features", kaze_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/kaze_features.png", kaze_img)
+    cv.imwrite('../images/03/02.PNG', kaze_img)
 
-    json_data.update( \
-    { "KAZE" :
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect_compute": elapsed
-        }
-    })
+    json_data.update(
+        {"KAZE":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect_compute": elapsed
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -69,16 +71,17 @@ def main():
     akaze_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("AKAZE Features", akaze_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/akaze_features.png", akaze_img)
+    cv.imwrite('../images/03/03.PNG', akaze_img)
 
-    json_data.update( \
-    { "AKAZE" : 
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect_compute": elapsed
-        }
-    })
+    json_data.update(
+        {"AKAZE":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect_compute": elapsed
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -95,17 +98,18 @@ def main():
     fast_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("FAST Features", fast_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/fast_features.png", fast_img)
+    cv.imwrite('../images/03/04.PNG', fast_img)
 
-    json_data.update( \
-    {"FAST":
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect": elapsed,
-            "NOTE": "only a feature detector."
-        }
-     })
+    json_data.update(
+        {"FAST":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect": elapsed,
+             "NOTE": "only a feature detector."
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -122,16 +126,17 @@ def main():
     brisk_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("BRISK Features", brisk_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/brisk_features.png", brisk_img)
+    cv.imwrite('../images/03/05.PNG', brisk_img)
 
-    json_data.update( \
-    { "BRISK" :
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect_compute": elapsed
-        }
-    })
+    json_data.update(
+        {"BRISK":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect_compute": elapsed
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -139,7 +144,7 @@ def main():
 
     start = time.time()
 
-    orb = cv.ORB_create(nfeatures = 500)
+    orb = cv.ORB_create(nfeatures=500)
     kp = orb.detect(img, None)
     kp, des = orb.compute(img, kp)
 
@@ -148,16 +153,17 @@ def main():
     orb_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("ORB Features", orb_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/orb_features.png", orb_img)
+    cv.imwrite('../images/03/06.PNG', orb_img)
 
-    json_data.update( \
-    { "ORB 500" :
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect_compute": elapsed
-        }
-    })
+    json_data.update(
+        {"ORB 500":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect_compute": elapsed
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -165,7 +171,7 @@ def main():
 
     start = time.time()
 
-    orb = cv.ORB_create(nfeatures = 1000)
+    orb = cv.ORB_create(nfeatures=1000)
     kp = orb.detect(img, None)
     kp, des = orb.compute(img, kp)
 
@@ -174,16 +180,17 @@ def main():
     orb_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("ORB Features", orb_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/orb_features.png", orb_img)
-  
-    json_data.update( \
-    { "ORB 1000" :
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect_compute": elapsed
-        }
-    })
+    cv.imwrite('../images/03/07.PNG', orb_img)
+
+    json_data.update(
+        {"ORB 1000":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect_compute": elapsed
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -200,17 +207,18 @@ def main():
     mser_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
     cv.imshow("MSER Features", mser_img)
-    cv.waitKey(0)
+    cv.waitKey(1)
     cv.imwrite("data/msr_features.png", mser_img)
-    
-    json_data.update( \
-    {"MSER":
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect": elapsed,
-            "NOTE": "only a feature detector."
-        }
-     })
+    cv.imwrite('../images/03/08.PNG', mser_img)
+
+    json_data.update(
+        {"MSER":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect": elapsed,
+             "NOTE": "only a feature detector."
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -229,15 +237,16 @@ def main():
     cv.imshow("Simple Features", simple_img)
     cv.waitKey(0)
     cv.imwrite("data/simple_features.png", simple_img)
+    cv.imwrite('../images/03/09.PNG', simple_img)
 
-    json_data.update( \
-    {"Simple":
-        {
-            "detected_kepoints": len(kp),
-            "time_to_create_detect": elapsed,
-            "NOTE": "only a feature detector."
-        }
-     })
+    json_data.update(
+        {"Simple":
+         {
+             "detected_kepoints": len(kp),
+             "time_to_create_detect": elapsed,
+             "NOTE": "only a feature detector."
+         }
+         })
 
     # json.dump(json_data, data)
 
@@ -255,7 +264,7 @@ def main():
 #     sift_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
 #     cv.imshow("SIFT Features", sift_img)
-#     cv.waitKey(0)
+#     cv.waitKey(1)
 #     cv.imwrite("sift_features.png", sift_img)
 
 #     json_data.update( \
@@ -282,7 +291,7 @@ def main():
 #     surf_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
 #     cv.imshow("SURF Features", surf_img)
-#     cv.waitKey(0)
+#     cv.waitKey(1)
 #     cv.imwrite("surf_features.png", surf_img)
 
 #     json_data.update( \
@@ -308,7 +317,7 @@ def main():
 #     star_img = cv.drawKeypoints(img, kp, None, color=[0, 0, 255])
 
 #     cv.imshow("STAR Features", star_img)
-#     cv.waitKey(0)
+#     cv.waitKey(1)
 #     cv.imwrite("star_features.png", star_img)
 
 #     json_data.update( \
@@ -327,7 +336,7 @@ def main():
     data.close()
 
     return
-  
+
 
 if __name__ == "__main__":
 

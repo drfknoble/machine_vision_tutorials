@@ -13,6 +13,7 @@ def main():
         ret, frame = camera.read()
 
         cv.imshow("frame", frame)
+        cv.imwrite('../images/01/01.PNG', frame)
         
         i = cv.waitKey(30)
 

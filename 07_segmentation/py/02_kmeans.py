@@ -22,7 +22,8 @@ def main():
     img = cv.resize(img, (cols, rows))
 
     cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.waitKey(1)
+    cv.imwrite('../images/02/01.PNG', img)
 
     # k-means
 
@@ -43,6 +44,7 @@ def main():
         cv.imshow("Quantized Image, K = {}".format(K), quantized)
         cv.waitKey(0)
         cv.imwrite("data/quantized_image_{}.png".format(K), quantized)
+        cv.imwrite('../images/02/0{}.PNG'.format(int(K/2 + 1)), quantized)
 
     cv.destroyAllWindows()
 

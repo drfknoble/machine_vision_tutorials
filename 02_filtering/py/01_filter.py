@@ -5,10 +5,10 @@ def main():
 
     # Load image
 
-    img = cv.imread("data/apples.png")
+    img = cv.imread('data/apples.png')
 
     if img is None:
-        print("ERROR::CV::Could not read image.")
+        print('ERROR::CV::Could not read image.')
         return
 
     # Resize image
@@ -20,8 +20,9 @@ def main():
 
     img = cv.resize(img, (cols, rows))
 
-    cv.imshow("img", img)
-    cv.waitKey(0)
+    cv.imshow('img', img)
+    cv.waitKey(1)
+    cv.imwrite('../images/01/01.PNG', img)
 
     # Kernel, K = [0, 0, 0; 0, 1, 0; 0, 0, 0]
 
@@ -30,9 +31,10 @@ def main():
 
     I_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Identity Image", I_img)
-    cv.waitKey(0)
-    cv.imwrite("data/I_img.png", I_img)
+    cv.imshow('Identity Image', I_img)
+    cv.waitKey(1)
+    cv.imwrite('data/I_img.png', I_img)
+    cv.imwrite('../images/01/02.PNG', I_img)
 
     # Kernel, K = [0, -1, 0; -1, 5, -1; 0, -1, 0]
 
@@ -41,9 +43,10 @@ def main():
 
     sharp_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Sharpened Image", sharp_img)
-    cv.waitKey(0)
-    cv.imwrite("data/sharp_img.png", sharp_img)
+    cv.imshow('Sharpened Image', sharp_img)
+    cv.waitKey(1)
+    cv.imwrite('data/sharp_img.png', sharp_img)
+    cv.imwrite('../images/01/03.PNG', sharp_img)
 
     # Kernel, K = 1/9 * [1, 1, 1; 1, 1, 1; 1, 1, 1]
 
@@ -52,9 +55,10 @@ def main():
 
     box_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Box Blurred Image", box_img)
-    cv.waitKey(0)
-    cv.imwrite("data/box_img.png", box_img)
+    cv.imshow('Box Blurred Image', box_img)
+    cv.waitKey(1)
+    cv.imwrite('data/box_img.png', box_img)
+    cv.imwrite('../images/01/04.PNG', box_img)
 
     # Kernel, K = 1/16 * [1, 2, 1; 2, 4, 2; 1, 2, 1]
 
@@ -63,9 +67,10 @@ def main():
 
     gaussian_img = cv.filter2D(img, cv.CV_8UC3, kernel)
 
-    cv.imshow("Gaussian Blurred Image", gaussian_img)
-    cv.waitKey(0)
-    cv.imwrite("data/gaussian_img.png", gaussian_img)
+    cv.imshow('Gaussian Blurred Image', gaussian_img)
+    cv.waitKey(1)
+    cv.imwrite('data/gaussian_img.png', gaussian_img)
+    cv.imwrite('../images/01/05.PNG', gaussian_img)
 
     # Kernel, K = [1, 0, 0; 0, 1, 0; 0, 0, 1]
 
@@ -74,9 +79,10 @@ def main():
 
     I3_img = cv.filter2D(img, cv.CV_8UC3, kernel)
   
-    cv.imshow("Eye(3) Image", I3_img)
-    cv.waitKey(0)
-    cv.imwrite("data/I3_img.png", I3_img)
+    cv.imshow('Eye(3) Image', I3_img)
+    cv.waitKey(1)
+    cv.imwrite('data/I3_img.png', I3_img)
+    cv.imwrite('../images/01/06.PNG', I3_img)
 
     # Kernel, K = [0, 1, 0; 1, -4, 1; 0, 1, 0]
 
@@ -85,15 +91,16 @@ def main():
 
     edge_img = cv.filter2D(img, cv.CV_8UC3, kernel)
   
-    cv.imshow("Edges Image", edge_img)
+    cv.imshow('Edges Image', edge_img)
     cv.waitKey(0)
-    cv.imwrite("data/edge_img.png", edge_img)
+    cv.imwrite('data/edge_img.png', edge_img)
+    cv.imwrite('../images/01/07.PNG', edge_img)
 
     cv.destroyAllWindows()
 
     return
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     main()

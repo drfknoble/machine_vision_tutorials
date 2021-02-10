@@ -138,8 +138,7 @@ def main(argv):
         cv.imshow("predicted_label[1]", p_1)
 
         cv.waitKey(0)
-                
-        f = np.uint8(255 * f)
+
         l_0 = np.uint8(255 * l_0)
         l_1 = np.uint8(255 * l_1)
         p_0 = np.uint8(255 * p_0)

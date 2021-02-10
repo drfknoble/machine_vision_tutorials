@@ -16,4 +16,4 @@ The following link describes how to use CMake in Visual Studio 2019:
 [[https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2019](https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2019)]
 
 The following link describes how to install OpenCV:
-[https://docs.opencv.org/4.3.0/d3/d52/tutorial_windows_install.html](https://docs.opencv.org/4.3.0/d3/d52/tutorial_windows_install.html)
+[https://docs.opencv.org/4.4.0/d3/d52/tutorial_windows_install.html](https://docs.opencv.org/4.4.0/d3/d52/tutorial_windows_install.html)

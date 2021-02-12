@@ -56,7 +56,7 @@ In `C:/Users/%USER%/Documents/opencv_09` create a new file named `region.py`. To
 `/opencv_09` should contain the following files and folders:
 
 ```
-/opencv_08
+/opencv_09
     region.py
 ```
 

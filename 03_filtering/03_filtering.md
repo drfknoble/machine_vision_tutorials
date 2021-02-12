@@ -49,7 +49,7 @@ C:/Users/%USER%/Documents
 
 In `C:/Users/%USER%/Documents` create a new folder named `opencv_02`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it.
 
-In `C:/Users/%USER%/Documents/opencv_02` create a new folder named `data`. Download `apples.PNG` from [here](images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_02/data`.
+In `C:/Users/%USER%/Documents/opencv_02` create a new folder named `data`. Download `apples.PNG` from [here](https://github.com/DrFKNoble/machine_vision_tutorials/blob/master/03_filtering/images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_02/data`.
 
 In `C:/Users/%USER%/Documents/opencv_02` create new files named `filter.py`. To create a new file: Right click on `/opencv_02` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
 

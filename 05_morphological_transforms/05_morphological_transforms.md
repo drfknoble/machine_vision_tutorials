@@ -49,8 +49,6 @@ C:/Users/%USER%/Documents
 
 In `C:/Users/%USER%/Documents` create a new folder named `opencv_04`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it.
 
-In `C:/Users/%USER%/Documents/opencv_04` create a new folder named `data`. Download `apples.PNG` from [here](images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_04/data`.
-
 In `C:/Users/%USER%/Documents/opencv_04` create new files named `erode.py` and `dilate.py`. To create a new file: Right click on `/opencv_04` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
 
 ---
@@ -59,8 +57,6 @@ In `C:/Users/%USER%/Documents/opencv_04` create new files named `erode.py` and `
 
 ```
 /opencv_04
-    /data
-        apple.PNG
     erode.py
     dilate.py
 ```

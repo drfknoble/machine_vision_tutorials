@@ -49,7 +49,7 @@ C:/Users/%USER%/Documents
 
 In `C:/Users/%USER%/Documents` create a new folder named `opencv_08`. To create a new folder: Right click in the Explorer tab, left click `New Folder`, and rename it.
 
-In `C:/Users/%USER%/Documents/opencv_08` create a new folder named `data`. Download `apples.PNG` from [here](images/04/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_08/data`.
+In `C:/Users/%USER%/Documents/opencv_08` create a new folder named `data`. Download `apples.PNG` from [here](https://github.com/DrFKNoble/machine_vision_tutorials/blob/master/09_color_spaces/images/01/01.PNG); save it in `C:/Users/%USER%/Documents/opencv_08/data`.
 
 In `C:/Users/%USER%/Documents/opencv_08` create a new file named `hsv.py`. To create a new file: Right click on `/opencv_08` in the Explorer tab, left click `New File`, and rename it. The file will open automatically.
 

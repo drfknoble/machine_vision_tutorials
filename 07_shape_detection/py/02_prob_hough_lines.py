@@ -15,11 +15,10 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
-    
+   
     cv.imshow("img", img)
     cv.waitKey(1)
     cv.imwrite('../images/02/01.PNG', img)
-
 
     # Detect lines' edges
 
@@ -46,7 +45,7 @@ def main():
 
     cv.destroyAllWindows()
 
-    return
+    return 0
 
 
 if __name__ == "__main__":

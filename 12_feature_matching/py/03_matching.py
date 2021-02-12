@@ -8,7 +8,7 @@ def main():
 
     # Load image
 
-    img = cv.imread("data/apples.png")
+    img = cv.imread("data/apples.PNG")
 
     if img is None:
         print("ERROR::CV::Could not read image.")
@@ -42,22 +42,22 @@ def main():
 
     print("Transform: {}".format(M))
 
-    transformed_img = cv.warpPerspective(img, M, (cols, rows))
-    transformed_img = np.uint8(transformed_img)
+    warp_img = cv.warpPerspective(img, M, (cols, rows))
+    warp_img = np.uint8(warp_img)
 
-    cv.imshow("Transformed Image", transformed_img)
+    cv.imshow("Transformed Image", warp_img)
     cv.waitKey(1)
-    cv.imwrite("data/transformed_img.png", transformed_img)
-    cv.imwrite('../images/03/02.PNG', transformed_img)
+    cv.imwrite("data/warp_img.PNG", warp_img)
+    cv.imwrite('../images/03/02.PNG', warp_img)
 
     # ORB
 
     img = np.uint8(img)
-    transformed_img = np.uint8(transformed_img)
+    warp_img = np.uint8(warp_img)
 
     orb = cv.ORB_create(nfeatures=1000)
     kp1, des1 = orb.detectAndCompute(img, None)
-    kp2, des2 = orb.detectAndCompute(transformed_img, None)
+    kp2, des2 = orb.detectAndCompute(warp_img, None)
 
     json_data.update({
         "ORB":
@@ -80,12 +80,12 @@ def main():
 
     matches = sorted(matches, key=lambda x: x.distance)
 
-    out = cv.drawMatches(img, kp1, transformed_img, kp2,
+    out = cv.drawMatches(img, kp1, warp_img, kp2,
                          matches[:best_matches], None, [0, 0, 255])
 
     cv.imshow("BF Matches", out)
     cv.waitKey(1)
-    cv.imwrite("data/bf_matched.png", out)
+    cv.imwrite("data/bf_matched.PNG", out)
     cv.imwrite('../images/03/03.PNG', out)
 
     json_data.update({
@@ -115,12 +115,12 @@ def main():
 
     matches = sorted(matches, key=lambda x: x.distance)
 
-    out = cv.drawMatches(img, kp1, transformed_img, kp2,
+    out = cv.drawMatches(img, kp1, warp_img, kp2,
                          matches[:best_matches], None, [0, 0, 255])
 
     cv.imshow("FLANN Matches", out)
     cv.waitKey(0)
-    cv.imwrite("data/flann_matched.png", out)
+    cv.imwrite("data/flann_matched.PNG", out)
     cv.imwrite('../images/03/04.PNG', out)
 
     json_data.update({
@@ -138,7 +138,8 @@ def main():
     cv.destroyAllWindows()
 
     data.close()
-    return
+
+    return 0
 
 
 if __name__ == "__main__":

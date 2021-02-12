@@ -7,44 +7,45 @@ def main():
 
     # Create shapes
 
-    image1 = np.zeros((480, 640, 1), np.uint8)
+    rows, cols = 480, 640
+    img = np.zeros((rows, cols, 1), np.uint8)
 
-    coordinates = [(int(random.random() * 640), int(random.random() * 480))
+    coordinates = [(int(random.random() * cols), int(random.random() * rows))
                    for _ in range(40)]
 
     for c in coordinates:
 
-        cv.circle(image1, c, 10, (255), -1)
+        cv.circle(img, c, 10, (255), -1)
+
+    cv.imshow("img", img)
+    cv.waitKey(1)
+    cv.imwrite("data/img.PNG", img)
+    cv.imwrite('../images/01/01.PNG', img)
 
     #  Find contorus
 
     contours, hierarchy = cv.findContours(
-        image1, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
-    image2 = np.zeros((480, 640, 3), np.uint8)
+    # Draw each contour
 
-    # Colourize each contour
+    regions = np.zeros((rows, cols, 3), np.uint8)
 
     for i, c in enumerate(contours):
 
         colour = (random.random() * 255, random.random()
                   * 255, random.random() * 255)
 
-        cv.drawContours(image2, contours, i, colour, -1)
+        cv.drawContours(regions, contours, i, colour, -1)
 
-    cv.imshow("image1", image1)
+    cv.imshow("regions", regions)
     cv.waitKey(0)
-    cv.imwrite("data/image_1.png", image1)
-    cv.imwrite('../images/01/01.PNG', image1)
-
-    cv.imshow("image2", image2)
-    cv.waitKey(0)
-    cv.imwrite("data/image_2.png", image2)
-    cv.imwrite('../images/01/02.PNG', image2)
+    cv.imwrite("data/regions.PNG", regions)
+    cv.imwrite('../images/01/02.PNG', regions)
 
     cv.destroyAllWindows()
 
-    return
+    return 0
 
 
 if __name__ == "__main__":

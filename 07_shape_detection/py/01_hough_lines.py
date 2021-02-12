@@ -15,7 +15,7 @@ def main():
     # Resize image
 
     rows, cols, channels = img.shape
-    
+
     cv.imshow("img", img)
     cv.waitKey(1)
     cv.imwrite('../images/01/01.PNG', img)
@@ -48,7 +48,9 @@ def main():
     cv.imwrite("data/hough_lines.png", draw)
     cv.imwrite('../images/01/02.PNG', draw)
     
-    return
+    cv.destroyAllWindows()
+
+    return 0
 
 
 if __name__ == "__main__":

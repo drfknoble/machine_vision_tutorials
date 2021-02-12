@@ -10,7 +10,7 @@ def main():
 
     if img is None:
         print("ERROR::CV::Could not read image.")
-        return
+        return 1
 
     # Resize image
 
@@ -48,7 +48,7 @@ def main():
 
     cv.destroyAllWindows()
 
-    return
+    return 0
 
 
 if __name__ == "__main__":

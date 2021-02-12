@@ -36,7 +36,7 @@ def main():
 
     for i, s in enumerate(shapes):
 
-        kernel = cv.getStructuringElement(s, (20, 20))
+        kernel = cv.getStructuringElement(s, (10, 10))
         print("{}: \n{}\n".format(shapes_label[i], kernel))
 
         eroded = cv.erode(img, kernel)

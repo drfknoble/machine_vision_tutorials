@@ -10,7 +10,7 @@ def main():
 
     if img is None:
         print("ERROR::CV::Could not read image.")
-        return
+        return 1
 
     # Resize image
 
@@ -50,7 +50,6 @@ def main():
         cv.waitKey(1)
         cv.imwrite('../images/01/0{}.PNG'.format(i + 3), thresholded_img)
 
-
         result_img = result_img + thresholded_img
 
     cv.imshow("Result Image", result_img)
@@ -60,7 +59,7 @@ def main():
 
     cv.destroyAllWindows()   
 
-    return
+    return 0
 
 
 if __name__ == "__main__":

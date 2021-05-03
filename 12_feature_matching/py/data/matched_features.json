@@ -1,14 +1,1 @@
-{
-    "ORB": {
-        "img1_detected_kepoints": 956,
-        "img2_detected_kepoints": 967
-    },
-    "BF": {
-        "bf_matched_keypoints": 956,
-        "time_to_match": 0.0039653778076171875
-    },
-    "FLANN": {
-        "FLANN_matched_keypoints": 956,
-        "time_to_match": 0.006986856460571289
-    }
-}
+{"ORB": {"img1_detected_kepoints": 956, "img2_detected_kepoints": 967}, "BF": {"bf_matched_keypoints": 956, "time_to_match": 0.004000425338745117}, "FLANN": {"FLANN_matched_keypoints": 956, "time_to_match": 0.006999969482421875}}

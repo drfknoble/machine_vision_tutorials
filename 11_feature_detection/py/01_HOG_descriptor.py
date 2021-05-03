@@ -101,7 +101,7 @@ def main():
 
     # Load image
 
-    img = cv.imread("data/person.png")
+    img = cv.imread("data/person.jpg")
 
     if img is None:
         print("ERROR::CV::Could not read image.")

@@ -36,7 +36,7 @@ def main():
 
     # OpenCV canny()
 
-    canny = cv.Canny(img_gray, 20, 60)
+    canny = cv.Canny(img_gray, 20, 75)
 
     cv.imshow("OpenCV Canny()", canny)
     cv.waitKey(0)

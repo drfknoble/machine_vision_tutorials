@@ -322,7 +322,7 @@ Type the following code into `canny.py`:
 Type the following code into `canny.py`:
 
 ```python
-    canny = cv.Canny(img_gray, 25, 255)
+    canny = cv.Canny(img_gray, 20, 75)
 
     cv.imshow("canny", canny)
     cv.waitKey(0)

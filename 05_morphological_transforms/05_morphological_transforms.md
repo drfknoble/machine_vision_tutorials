@@ -70,9 +70,12 @@ Type the following code into `erode.py`:
 ```python
 import cv2 as cv
 import numpy as np
+import random
 ```
 
-OpenCV's Python module `cv2` is imported as `cv` and NumPy's Python module `numpy` is imported as `np`.
+OpenCV's Python module `cv2` is imported as `cv` and NumPy's Python module `numpy` is imported as `np`. 
+
+Python's `random` module is imported so that we can generate random integers, which we'll use later in the tutorial.
 
 ---
 
@@ -185,9 +188,12 @@ Type the following code into `dilate.py`:
 ```python
 import cv2 as cv
 import numpy as np
+import random
 ```
 
 OpenCV's Python module `cv2` is imported as `cv` and NumPy's Python module `numpy` is imported as `np`.
+
+Python's `random` module is imported so that we can generate random integers, which we'll use later in the tutorial.
 
 ---
 
